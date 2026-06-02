@@ -21,6 +21,7 @@ from .policy.tool import search_company_policy
 from .social_search.tool import search_tweets
 from .send.tool import send_telegram
 from .lookup.tool import web_search
+from .notion.tool import notion
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -43,6 +44,7 @@ TOOL_FUNCTIONS = {
     "date_normalize": date_normalize,
     "citation_check": citation_check,
     "source_rank": source_rank,
+    "notion": notion,
 }
 
 

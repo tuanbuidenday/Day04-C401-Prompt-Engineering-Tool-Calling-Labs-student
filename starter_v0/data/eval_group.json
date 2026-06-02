@@ -3,5 +3,122 @@
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_notion_read_page",
+      "phase": "B",
+      "suite": "group",
+      "query": "Đọc Notion page này giúp mình: 210d07b7-bd75-44c3-acef-c01f25468766",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "notion", "args": {"mode": "page", "page_id": "210d07b7-bd75-44c3-acef-c01f25468766"}}]},
+      "metadata": {"skill": "notion_page_read", "difficulty": "medium", "what_it_tests": "Specific Notion page ID -> notion mode=page with exact page_id."}
+    },
+    {
+      "id": "G02_notion_search_database",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm trong Notion workspace database Roadmap.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "notion", "args": {"mode": "search", "query": "Roadmap"}}]},
+      "metadata": {"skill": "notion_search", "difficulty": "medium", "what_it_tests": "Notion workspace search request -> notion mode=search."}
+    },
+    {
+      "id": "G03_keyword_extraction_vi",
+      "phase": "B",
+      "suite": "group",
+      "query": "Trích 4 keyword chính từ đoạn này: AI agents đang được dùng để tự động hóa research workflow và đánh giá nguồn.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "extract_keywords", "args": {"max_keywords": 4}}]},
+      "metadata": {"skill": "team_tool_extract_keywords", "difficulty": "easy", "what_it_tests": "Explicit keyword extraction request -> extract_keywords."}
+    },
+    {
+      "id": "G04_date_normalize_month",
+      "phase": "B",
+      "suite": "group",
+      "query": "Chuẩn hóa cụm thời gian 'tháng này' giúp mình.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "date_normalize", "args": {"text": "tháng này"}}]},
+      "metadata": {"skill": "team_tool_date_normalize", "difficulty": "easy", "what_it_tests": "Explicit time normalization request -> date_normalize."}
+    },
+    {
+      "id": "G05_parallel_news_policy",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm tin OpenAI trong tuần này và kiểm tra policy công ty về trích dẫn nguồn trước khi viết digest.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [
+        {"name": "lookup", "args": {"query": "OpenAI", "topic": "news", "timeframe": "week"}},
+        {"name": "policy", "args": {"policy_area": "source_citation"}}
+      ]},
+      "metadata": {"skill": "parallel_news_plus_policy", "difficulty": "hard", "what_it_tests": "One prompt asks for live news and citation policy -> call both lookup and policy."}
+    },
+    {
+      "id": "GM01_multiturn_notion_page",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Mình muốn đọc một page trong Notion."},
+        {"role": "user", "content": "Page ID là 210d07b7-bd75-44c3-acef-c01f25468766."},
+        {"role": "user", "content": "Đọc đúng page đó giúp mình."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "notion", "args": {"mode": "page", "page_id": "210d07b7-bd75-44c3-acef-c01f25468766"}}]},
+      "metadata": {"skill": "multiturn_notion_page", "difficulty": "hard", "what_it_tests": "Carry Notion page ID from earlier turn and read it in latest turn."}
+    },
+    {
+      "id": "GM02_multiturn_send_confirmation",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Mình vừa có digest AI xong."},
+        {"role": "user", "content": "Nội dung là: Hôm nay có nhiều tin mới về AI agents."},
+        {"role": "user", "content": "Đăng lên Telegram giúp mình."}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"skill": "multiturn_publish_boundary", "difficulty": "medium", "what_it_tests": "Publishing still requires yes/no confirmation even when content exists in context."}
+    },
+    {
+      "id": "GM03_multiturn_switch_to_arxiv",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm tin web về AI agent evaluation."},
+        {"role": "user", "content": "Không cần tin web nữa, chuyển sang paper arXiv."},
+        {"role": "user", "content": "Giữ chủ đề AI agent evaluation và lấy 4 paper thôi."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "papers", "args": {"query": "AI agent evaluation", "max_results": 4}}]},
+      "metadata": {"skill": "multiturn_switch_tool_to_papers", "difficulty": "hard", "what_it_tests": "Latest turn switches web lookup to arXiv papers and carries topic/limit."}
+    },
+    {
+      "id": "GM04_multiturn_missing_url_then_policy",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tóm tắt bài này và nhớ kiểm tra policy research nội bộ."},
+        {"role": "user", "content": "Link đây: https://www.anthropic.com/research"},
+        {"role": "user", "content": "Đọc đúng link đó và kiểm tra policy research nhé."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [
+        {"name": "fetch", "args": {"url": "https://www.anthropic.com/research"}},
+        {"name": "policy", "args": {"policy_area": "ai_research"}}
+      ]},
+      "metadata": {"skill": "multiturn_url_plus_policy", "difficulty": "hard", "what_it_tests": "After URL is supplied, latest turn requires fetch plus ai_research policy."}
+    },
+    {
+      "id": "GM05_multiturn_timeframe_correction",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tin robotics hôm nay có gì nổi bật?"},
+        {"role": "user", "content": "Đổi sang AI healthcare nhé."},
+        {"role": "user", "content": "Và không phải hôm nay, tìm trong tháng này."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "lookup", "args": {"query": "AI healthcare", "topic": "news", "timeframe": "month"}}]},
+      "metadata": {"skill": "multiturn_query_timeframe_correction", "difficulty": "hard", "what_it_tests": "Carry news intent, override query and timeframe from previous turns."}
+    }
+  ]
 }

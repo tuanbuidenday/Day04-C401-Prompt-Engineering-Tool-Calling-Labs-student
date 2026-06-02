@@ -117,6 +117,17 @@ tools:
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
 
+  - name: notion
+    description: "Tìm hoặc đọc nội dung trong workspace Notion đã kết nối. Chỉ dùng khi user hỏi dữ liệu Notion, wiki nội bộ, page/database Notion; cần NOTION_API_KEY và integration phải được share quyền."
+    parameters:
+      type: object
+      properties:
+        query: {type: string, default: "", description: "Từ khóa tìm kiếm Notion khi mode=search"}
+        mode: {type: string, enum: [search, page], default: "search", description: "search để tìm page/database, page để đọc block của page_id"}
+        page_id: {type: string, default: "", description: "Notion page/block ID khi mode=page"}
+        limit: {type: integer, default: 5, description: "Số kết quả hoặc block tối đa"}
+      required: [mode]
+
   # ---------------- Team local tools ----------------
   - name: extract_keywords
     description: "Tool local phụ trợ để trích keyword từ text. Chỉ dùng khi user yêu cầu keyword/chủ đề rõ ràng; không dùng như bước bắt buộc trước lookup hoặc social_search."
