@@ -1,0 +1,592 @@
+{
+  "transcript_id": "v3_openrouter_20260602T144532538046",
+  "version": "v3",
+  "artifact_version": "v3+p99025c7f70e0+t6cdb53d5d7b8",
+  "prompt_hash": "99025c7f70e0396bbb2fc696628992a57dcad457dcd2cb8f809f36ae5d22704d",
+  "tools_hash": "6cdb53d5d7b8de80d60b298b1357f462cedbedfae261d5ba60b08ccc401687c5",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "C:\\Users\\ASUS\\Antigrvity_project\\Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\ASUS\\Antigrvity_project\\Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-06-02T14:45:32",
+  "updated_at": "2026-06-02T14:47:00",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T14:45:49",
+      "user": "lấy thông tin 10 AI hay nhất",
+      "status": "answered",
+      "assistant_text": "Here are 10 notable research papers related to AI:\n\n1. **[In the Middle, Not on Top: AI-Mediated Communication for Patient-Provider Care Relationships](http://arxiv.org/abs/2604.00643v1)**\n   - **Authors**: Ut Gong, Yibo Meng, Qihan Zhang, Xin Chen, Yan Guan\n   - **Summary**: This paper discusses how AI can mediate communication in healthcare without replacing human judgment, emphasizing the importance of trust and connection in patient-provider relationships.\n   - **Published**: April 1, 2026\n   - **[PDF](https://arxiv.org/pdf/2604.00643v1)**\n\n2. **[The Limits of Global Inclusion in AI Development](http://arxiv.org/abs/2102.01265v1)**\n   - **Authors**: Alan Chan, Chinasa T. Okolo, Zachary Terner, Angelina Wang\n   - **Summary**: The paper argues for a focus on redistributing power in AI development rather than just including underrepresented groups, to avoid exacerbating global inequalities.\n   - **Published**: February 2, 2021\n   - **[PDF](https://arxiv.org/pdf/2102.01265v1)**\n\n3. **[Principles and Guidelines for Randomized Controlled Trials in AI Evaluation](http://arxiv.org/abs/2605.02050v1)**\n   - **Authors**: Christopher Kelly et al.\n   - **Summary**: This work establishes a framework for standardizing AI evaluation through randomized controlled trials, focusing on human performance and causal inference.\n   - **Published**: May 3, 2026\n   - **[PDF](https://arxiv.org/pdf/2605.02050v1)**\n\n4. **[KubeEdge.AI: AI Platform for Edge Devices](http://arxiv.org/abs/2007.09227v1)**\n   - **Authors**: Sean Wang, Yuxiao Hu, Jason Wu\n   - **Summary**: The paper presents KubeEdge.AI, an edge AI framework designed to enhance the capabilities of embedded systems in cloud computing environments.\n   - **Published**: July 7, 2020\n   - **[PDF](https://arxiv.org/pdf/2007.09227v1)**\n\n5. **[Skilled and Mobile: Survey Evidence of AI Researchers' Immigration Preferences](http://arxiv.org/abs/2104.07237v2)**\n   - **Authors**: Remco Zwetsloot et al.\n   - **Summary**: This survey explores the immigration preferences of AI researchers, highlighting the U.S. as the most popular destination and discussing factors influencing their decisions.\n   - **Published**: April 15, 2021\n   - **[PDF](https://arxiv.org/pdf/2104.07237v2)**\n\n6. **[\"EHLO WORLD\" -- Checking If Your Conversational AI Knows Right from Wrong](http://arxiv.org/abs/2006.10437v1)**\n   - **Authors**: Elayne Ruane, Vivek Nallur\n   - **Summary**: The paper discusses methods for evaluating the ethical claims of conversational AI systems, proposing a hybrid regulatory approach.\n   - **Published**: June 18, 2020\n   - **[PDF](https://arxiv.org/pdf/2006.10437v1)**\n\n7. **[Data-centric AI: Perspectives and Challenges](http://arxiv.org/abs/2301.04819v3)**\n   - **Authors**: Daochen Zha et al.\n   - **Summary**: This paper emphasizes the importance of data quality in AI systems and outlines challenges and missions for advancing data-centric AI.\n   - **Published**: January 12, 2023\n   - **[PDF](https://arxiv.org/pdf/2301.04819v3)**\n\n8. **[Cybersecurity AI: The World's Top AI Agent for Security Capture-the-Flag (CTF)](http://arxiv.org/abs/2512.02654v1)**\n   - **Authors**: Víctor Mayoral-Vilches et al.\n   - **Summary**: The paper presents Cybersecurity AI, which has excelled in Capture-the-Flag competitions, raising questions about the future of such contests in measuring security talent.\n   - **Published**: December 2, 2025\n   - **[PDF](https://arxiv.org/pdf/2512.02654v1)**\n\n9. **[The 9th AI City Challenge](http://arxiv.org/abs/2508.13564v1)**\n   - **Authors**: Zheng Tang et al.\n   - **Summary**: This paper discusses advancements in AI applications in transportation and public safety, detailing the challenges and outcomes of the 2025 AI City Challenge.\n   - **Published**: August 19, 2025\n   - **[PDF](https://arxiv.org/pdf/2508.13564v1)**\n\n10. **[The 6th AI City Challenge](http://arxiv.org/abs/2204.10380v4)**\n    - **Authors**: Milind Naphade et al.\n    - **Summary**: The paper reviews the 2022 AI City Challenge, focusing on intelligent traffic systems and retail automation, and highlights the performance of participating teams.\n    - **Published**: April 21, 2022\n    - **[PDF](https://arxiv.org/pdf/2204.10380v4)**\n\nThese papers cover a range of topics within AI, from ethical considerations to practical applications in various fields.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "top AI",
+                "max_results": 10
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "top AI",
+                "max_results": 10
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "top AI",
+                "api_query": "all:top AND all:AI",
+                "total_results": 1562,
+                "items": [
+                  {
+                    "arxiv_id": "2604.00643v1",
+                    "title": "In the Middle, Not on Top: AI-Mediated Communication for Patient-Provider Care Relationships",
+                    "summary": "Relationship-centered care relies on trust and meaningful connection. As AI enters clinical settings, we must ask not just what it can do, but how it should be positioned to support these values. We examine a \"middle, not top\" approach where AI mediates communication without usurping human judgment. Through studies of CLEAR, an asynchronous messaging system, we show how this configuration addresses real-world constraints like time pressure and uneven health literacy. We find that mediator affordances (e.g., availability, neutrality) redistribute interpretive work and reduce relational friction. Ultimately, we frame AI mediation as relational infrastructure, highlighting critical design tensions around framing power and privacy.",
+                    "authors": [
+                      "Ut Gong",
+                      "Yibo Meng",
+                      "Qihan Zhang",
+                      "Xin Chen",
+                      "Yan Guan"
+                    ],
+                    "published": "2026-04-01T08:53:40Z",
+                    "updated": "2026-04-01T08:53:40Z",
+                    "url": "http://arxiv.org/abs/2604.00643v1",
+                    "pdf_url": "https://arxiv.org/pdf/2604.00643v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.HC",
+                    "categories": [
+                      "cs.HC"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2102.01265v1",
+                    "title": "The Limits of Global Inclusion in AI Development",
+                    "summary": "Those best-positioned to profit from the proliferation of artificial intelligence (AI) systems are those with the most economic power. Extant global inequality has motivated Western institutions to involve more diverse groups in the development and application of AI systems, including hiring foreign labour and establishing extra-national data centers and laboratories. However, given both the propensity of wealth to abet its own accumulation and the lack of contextual knowledge in top-down AI solutions, we argue that more focus should be placed on the redistribution of power, rather than just on including underrepresented groups. Unless more is done to ensure that opportunities to lead AI development are distributed justly, the future may hold only AI systems which are unsuited to their conditions of application, and exacerbate inequality.",
+                    "authors": [
+                      "Alan Chan",
+                      "Chinasa T. Okolo",
+                      "Zachary Terner",
+                      "Angelina Wang"
+                    ],
+                    "published": "2021-02-02T02:53:40Z",
+                    "updated": "2021-02-02T02:53:40Z",
+                    "url": "http://arxiv.org/abs/2102.01265v1",
+                    "pdf_url": "https://arxiv.org/pdf/2102.01265v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CY",
+                    "categories": [
+                      "cs.CY"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2605.02050v1",
+                    "title": "Principles and Guidelines for Randomized Controlled Trials in AI Evaluation",
+                    "summary": "This work establishes a foundational framework for standardizing AI evaluation RCTs (sometimes called human uplift studies). Drawing on established experimental practices from disciplines with established RCT traditions, including software engineering, economics, clinical and health sciences, and psychology, we adopt the (Shadish et al., 2002) four-validity framework and extend it with a fifth principle on transparency, repeatability, and verification adapted from the Transparency and Openness Promotion (TOP) Guidelines (Center for Open Science, 2025). We operationalize all five principles into 33 guidelines adapted for AI evaluation RCT contexts, expressed as requirements with rationales, implementation instructions, and evidence bases. We position the principles and guidelines as serving three key roles for AI evaluation RCTs: a design tool for planning studies, an evaluation rubric for assessing existing work, and a blueprint for standard setting as the field converges on norms. Our framework extends prior work by centering evaluation on human performance rather than model output alone, formalizing causal inference through RCT methodology for AI contexts, integrating heterogeneity analysis and practical significance assessment, implementing a graded transparency and repeatability framework, and addressing AI-specific challenges including model versioning, human-AI interaction dynamics, contamination and spillover effects, and equitable impact assessment.",
+                    "authors": [
+                      "Christopher Kelly",
+                      "Angelica Chowdhury",
+                      "Alexandra Campili",
+                      "Bimpe Ayoola",
+                      "Devin Barbour",
+                      "Thomas Chen Dawson",
+                      "Ze Shen Chin",
+                      "Rokas Gipiškis"
+                    ],
+                    "published": "2026-05-03T20:37:48Z",
+                    "updated": "2026-05-03T20:37:48Z",
+                    "url": "http://arxiv.org/abs/2605.02050v1",
+                    "pdf_url": "https://arxiv.org/pdf/2605.02050v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CY",
+                    "categories": [
+                      "cs.CY",
+                      "cs.AI",
+                      "cs.HC",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2007.09227v1",
+                    "title": "KubeEdge.AI: AI Platform for Edge Devices",
+                    "summary": "The demand for smartness in embedded systems has been mounting up drastically in the past few years. Embedded system today must address the fundamental challenges introduced by cloud computing and artificial intelligence. KubeEdge [1] is an edge computing framework build on top of Kubernetes [2]. It provides compute resource management, deployment, runtime and operation capabilities on geo-located edge computing resources, from the cloud, which is a natural fit for embedded systems. Here we propose KubeEdge.AI, an edge AI framework on top of KubeEdge. It provides a set of key modules and interfaces: a data handling and processing engine, a concise AI runtime, a decision engine, and a distributed data query interface. KubeEdge.AI will help reduce the burdens for developing specific edge/embedded AI systems and promote edge-cloud coordination and synergy.",
+                    "authors": [
+                      "Sean Wang",
+                      "Yuxiao Hu",
+                      "Jason Wu"
+                    ],
+                    "published": "2020-07-07T23:36:23Z",
+                    "updated": "2020-07-07T23:36:23Z",
+                    "url": "http://arxiv.org/abs/2007.09227v1",
+                    "pdf_url": "https://arxiv.org/pdf/2007.09227v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.DC",
+                    "categories": [
+                      "cs.DC",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2104.07237v2",
+                    "title": "Skilled and Mobile: Survey Evidence of AI Researchers' Immigration Preferences",
+                    "summary": "Countries, companies, and universities are increasingly competing over top-tier artificial intelligence (AI) researchers. Where are these researchers likely to immigrate and what affects their immigration decisions? We conducted a survey $(n = 524)$ of the immigration preferences and motivations of researchers that had papers accepted at one of two prestigious AI conferences: the Conference on Neural Information Processing Systems (NeurIPS) and the International Conference on Machine Learning (ICML). We find that the U.S. is the most popular destination for AI researchers, followed by the U.K., Canada, Switzerland, and France. A country's professional opportunities stood out as the most common factor that influences immigration decisions of AI researchers, followed by lifestyle and culture, the political climate, and personal relations. The destination country's immigration policies were important to just under half of the researchers surveyed, while around a quarter noted current immigration difficulties to be a deciding factor. Visa and immigration difficulties were perceived to be a particular impediment to conducting AI research in the U.S., the U.K., and Canada. Implications of the findings for the future of AI talent policies and governance are discussed.",
+                    "authors": [
+                      "Remco Zwetsloot",
+                      "Baobao Zhang",
+                      "Noemi Dreksler",
+                      "Lauren Kahn",
+                      "Markus Anderljung",
+                      "Allan Dafoe",
+                      "Michael C. Horowitz"
+                    ],
+                    "published": "2021-04-15T05:07:11Z",
+                    "updated": "2021-05-05T15:36:44Z",
+                    "url": "http://arxiv.org/abs/2104.07237v2",
+                    "pdf_url": "https://arxiv.org/pdf/2104.07237v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CY",
+                    "categories": [
+                      "cs.CY"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2006.10437v1",
+                    "title": "\"EHLO WORLD\" -- Checking If Your Conversational AI Knows Right from Wrong",
+                    "summary": "In this paper we discuss approaches to evaluating and validating the ethical claims of a Conversational AI system. We outline considerations around both a top-down regulatory approach and bottom-up processes. We describe the ethical basis for each approach and propose a hybrid which we demonstrate by taking the case of a customer service chatbot as an example. We speculate on the kinds of top-down and bottom-up processes that would need to exist for a hybrid framework to successfully function as both an enabler as well as a shepherd among multiple use-cases and multiple competing AI solutions.",
+                    "authors": [
+                      "Elayne Ruane",
+                      "Vivek Nallur"
+                    ],
+                    "published": "2020-06-18T11:33:02Z",
+                    "updated": "2020-06-18T11:33:02Z",
+                    "url": "http://arxiv.org/abs/2006.10437v1",
+                    "pdf_url": "https://arxiv.org/pdf/2006.10437v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CY",
+                    "categories": [
+                      "cs.CY",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2301.04819v3",
+                    "title": "Data-centric AI: Perspectives and Challenges",
+                    "summary": "The role of data in building AI systems has recently been significantly magnified by the emerging concept of data-centric AI (DCAI), which advocates a fundamental shift from model advancements to ensuring data quality and reliability. Although our community has continuously invested efforts into enhancing data in different aspects, they are often isolated initiatives on specific tasks. To facilitate the collective initiative in our community and push forward DCAI, we draw a big picture and bring together three general missions: training data development, inference data development, and data maintenance. We provide a top-level discussion on representative DCAI tasks and share perspectives. Finally, we list open challenges. More resources are summarized at https://github.com/daochenzha/data-centric-AI",
+                    "authors": [
+                      "Daochen Zha",
+                      "Zaid Pervaiz Bhat",
+                      "Kwei-Herng Lai",
+                      "Fan Yang",
+                      "Xia Hu"
+                    ],
+                    "published": "2023-01-12T05:28:59Z",
+                    "updated": "2023-04-02T05:18:56Z",
+                    "url": "http://arxiv.org/abs/2301.04819v3",
+                    "pdf_url": "https://arxiv.org/pdf/2301.04819v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2512.02654v1",
+                    "title": "Cybersecurity AI: The World's Top AI Agent for Security Capture-the-Flag (CTF)",
+                    "summary": "Are Capture-the-Flag competitions obsolete? In 2025, Cybersecurity AI (CAI) systematically conquered some of the world's most prestigious hacking competitions, achieving Rank #1 at multiple events and consistently outperforming thousands of human teams. Across five major circuits-HTB's AI vs Humans, Cyber Apocalypse (8,129 teams), Dragos OT CTF, UWSP Pointer Overflow, and the Neurogrid CTF showdown-CAI demonstrated that Jeopardy-style CTFs have become a solved game for well-engineered AI agents. At Neurogrid, CAI captured 41/45 flags to claim the $50,000 top prize; at Dragos OT, it sprinted 37% faster to 10K points than elite human teams; even when deliberately paused mid-competition, it maintained top-tier rankings. Critically, CAI achieved this dominance through our specialized alias1 model architecture, which delivers enterprise-scale AI security operations at unprecedented cost efficiency and with augmented autonomy-reducing 1B token inference costs from $5,940 to just $119, making continuous security agent operation financially viable for the first time. These results force an uncomfortable reckoning: if autonomous agents now dominate competitions designed to identify top security talent at negligible cost, what are CTFs actually measuring? This paper presents comprehensive evidence of AI capability across the 2025 CTF circuit and argues that the security community must urgently transition from Jeopardy-style contests to Attack & Defense formats that genuinely test adaptive reasoning and resilience-capabilities that remain uniquely human, for now.",
+                    "authors": [
+                      "Víctor Mayoral-Vilches",
+                      "Luis Javier Navarrete-Lozano",
+                      "Francesco Balassone",
+                      "María Sanz-Gómez",
+                      "Cristóbal R. J. Veas Chavez",
+                      "Maite del Mundo de Torres",
+                      "Vanesa Turiel"
+                    ],
+                    "published": "2025-12-02T11:15:44Z",
+                    "updated": "2025-12-02T11:15:44Z",
+                    "url": "http://arxiv.org/abs/2512.02654v1",
+                    "pdf_url": "https://arxiv.org/pdf/2512.02654v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CR",
+                    "categories": [
+                      "cs.CR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2508.13564v1",
+                    "title": "The 9th AI City Challenge",
+                    "summary": "The ninth AI City Challenge continues to advance real-world applications of computer vision and AI in transportation, industrial automation, and public safety. The 2025 edition featured four tracks and saw a 17% increase in participation, with 245 teams from 15 countries registered on the evaluation server. Public release of challenge datasets led to over 30,000 downloads to date. Track 1 focused on multi-class 3D multi-camera tracking, involving people, humanoids, autonomous mobile robots, and forklifts, using detailed calibration and 3D bounding box annotations. Track 2 tackled video question answering in traffic safety, with multi-camera incident understanding enriched by 3D gaze labels. Track 3 addressed fine-grained spatial reasoning in dynamic warehouse environments, requiring AI systems to interpret RGB-D inputs and answer spatial questions that combine perception, geometry, and language. Both Track 1 and Track 3 datasets were generated in NVIDIA Omniverse. Track 4 emphasized efficient road object detection from fisheye cameras, supporting lightweight, real-time deployment on edge devices. The evaluation framework enforced submission limits and used a partially held-out test set to ensure fair benchmarking. Final rankings were revealed after the competition concluded, fostering reproducibility and mitigating overfitting. Several teams achieved top-tier results, setting new benchmarks in multiple tasks.",
+                    "authors": [
+                      "Zheng Tang",
+                      "Shuo Wang",
+                      "David C. Anastasiu",
+                      "Ming-Ching Chang",
+                      "Anuj Sharma",
+                      "Quan Kong",
+                      "Norimasa Kobori",
+                      "Munkhjargal Gochoo",
+                      "Ganzorig Batnasan",
+                      "Munkh-Erdene Otgonbold",
+                      "Fady Alnajjar",
+                      "Jun-Wei Hsieh",
+                      "Tomasz Kornuta",
+                      "Xiaolong Li",
+                      "Yilin Zhao",
+                      "Han Zhang",
+                      "Subhashree Radhakrishnan",
+                      "Arihant Jain",
+                      "Ratnesh Kumar",
+                      "Vidya N. Murali",
+                      "Yuxing Wang",
+                      "Sameer Satish Pusegaonkar",
+                      "Yizhou Wang",
+                      "Sujit Biswas",
+                      "Xunlei Wu",
+                      "Zhedong Zheng",
+                      "Pranamesh Chakraborty",
+                      "Rama Chellappa"
+                    ],
+                    "published": "2025-08-19T06:55:06Z",
+                    "updated": "2025-08-19T06:55:06Z",
+                    "url": "http://arxiv.org/abs/2508.13564v1",
+                    "pdf_url": "https://arxiv.org/pdf/2508.13564v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.LG",
+                      "cs.RO"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2204.10380v4",
+                    "title": "The 6th AI City Challenge",
+                    "summary": "The 6th edition of the AI City Challenge specifically focuses on problems in two domains where there is tremendous unlocked potential at the intersection of computer vision and artificial intelligence: Intelligent Traffic Systems (ITS), and brick and mortar retail businesses. The four challenge tracks of the 2022 AI City Challenge received participation requests from 254 teams across 27 countries. Track 1 addressed city-scale multi-target multi-camera (MTMC) vehicle tracking. Track 2 addressed natural-language-based vehicle track retrieval. Track 3 was a brand new track for naturalistic driving analysis, where the data were captured by several cameras mounted inside the vehicle focusing on driver safety, and the task was to classify driver actions. Track 4 was another new track aiming to achieve retail store automated checkout using only a single view camera. We released two leader boards for submissions based on different methods, including a public leader board for the contest, where no use of external data is allowed, and a general leader board for all submitted results. The top performance of participating teams established strong baselines and even outperformed the state-of-the-art in the proposed challenge tracks.",
+                    "authors": [
+                      "Milind Naphade",
+                      "Shuo Wang",
+                      "David C. Anastasiu",
+                      "Zheng Tang",
+                      "Ming-Ching Chang",
+                      "Yue Yao",
+                      "Liang Zheng",
+                      "Mohammed Shaiqur Rahman",
+                      "Archana Venkatachalapathy",
+                      "Anuj Sharma",
+                      "Qi Feng",
+                      "Vitaly Ablavsky",
+                      "Stan Sclaroff",
+                      "Pranamesh Chakraborty",
+                      "Alice Li",
+                      "Shangru Li",
+                      "Rama Chellappa"
+                    ],
+                    "published": "2022-04-21T19:24:17Z",
+                    "updated": "2022-06-09T22:52:22Z",
+                    "url": "http://arxiv.org/abs/2204.10380v4",
+                    "pdf_url": "https://arxiv.org/pdf/2204.10380v4",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are 10 notable research papers related to AI:\n\n1. **[In the Middle, Not on Top: AI-Mediated Communication for Patient-Provider Care Relationships](http://arxiv.org/abs/2604.00643v1)**\n   - **Authors**: Ut Gong, Yibo Meng, Qihan Zhang, Xin Chen, Yan Guan\n   - **Summary**: This paper discusses how AI can mediate communication in healthcare without replacing human judgment, emphasizing the importance of trust and connection in patient-provider relationships.\n   - **Published**: April 1, 2026\n   - **[PDF](https://arxiv.org/pdf/2604.00643v1)**\n\n2. **[The Limits of Global Inclusion in AI Development](http://arxiv.org/abs/2102.01265v1)**\n   - **Authors**: Alan Chan, Chinasa T. Okolo, Zachary Terner, Angelina Wang\n   - **Summary**: The paper argues for a focus on redistributing power in AI development rather than just including underrepresented groups, to avoid exacerbating global inequalities.\n   - **Published**: February 2, 2021\n   - **[PDF](https://arxiv.org/pdf/2102.01265v1)**\n\n3. **[Principles and Guidelines for Randomized Controlled Trials in AI Evaluation](http://arxiv.org/abs/2605.02050v1)**\n   - **Authors**: Christopher Kelly et al.\n   - **Summary**: This work establishes a framework for standardizing AI evaluation through randomized controlled trials, focusing on human performance and causal inference.\n   - **Published**: May 3, 2026\n   - **[PDF](https://arxiv.org/pdf/2605.02050v1)**\n\n4. **[KubeEdge.AI: AI Platform for Edge Devices](http://arxiv.org/abs/2007.09227v1)**\n   - **Authors**: Sean Wang, Yuxiao Hu, Jason Wu\n   - **Summary**: The paper presents KubeEdge.AI, an edge AI framework designed to enhance the capabilities of embedded systems in cloud computing environments.\n   - **Published**: July 7, 2020\n   - **[PDF](https://arxiv.org/pdf/2007.09227v1)**\n\n5. **[Skilled and Mobile: Survey Evidence of AI Researchers' Immigration Preferences](http://arxiv.org/abs/2104.07237v2)**\n   - **Authors**: Remco Zwetsloot et al.\n   - **Summary**: This survey explores the immigration preferences of AI researchers, highlighting the U.S. as the most popular destination and discussing factors influencing their decisions.\n   - **Published**: April 15, 2021\n   - **[PDF](https://arxiv.org/pdf/2104.07237v2)**\n\n6. **[\"EHLO WORLD\" -- Checking If Your Conversational AI Knows Right from Wrong](http://arxiv.org/abs/2006.10437v1)**\n   - **Authors**: Elayne Ruane, Vivek Nallur\n   - **Summary**: The paper discusses methods for evaluating the ethical claims of conversational AI systems, proposing a hybrid regulatory approach.\n   - **Published**: June 18, 2020\n   - **[PDF](https://arxiv.org/pdf/2006.10437v1)**\n\n7. **[Data-centric AI: Perspectives and Challenges](http://arxiv.org/abs/2301.04819v3)**\n   - **Authors**: Daochen Zha et al.\n   - **Summary**: This paper emphasizes the importance of data quality in AI systems and outlines challenges and missions for advancing data-centric AI.\n   - **Published**: January 12, 2023\n   - **[PDF](https://arxiv.org/pdf/2301.04819v3)**\n\n8. **[Cybersecurity AI: The World's Top AI Agent for Security Capture-the-Flag (CTF)](http://arxiv.org/abs/2512.02654v1)**\n   - **Authors**: Víctor Mayoral-Vilches et al.\n   - **Summary**: The paper presents Cybersecurity AI, which has excelled in Capture-the-Flag competitions, raising questions about the future of such contests in measuring security talent.\n   - **Published**: December 2, 2025\n   - **[PDF](https://arxiv.org/pdf/2512.02654v1)**\n\n9. **[The 9th AI City Challenge](http://arxiv.org/abs/2508.13564v1)**\n   - **Authors**: Zheng Tang et al.\n   - **Summary**: This paper discusses advancements in AI applications in transportation and public safety, detailing the challenges and outcomes of the 2025 AI City Challenge.\n   - **Published**: August 19, 2025\n   - **[PDF](https://arxiv.org/pdf/2508.13564v1)**\n\n10. **[The 6th AI City Challenge](http://arxiv.org/abs/2204.10380v4)**\n    - **Authors**: Milind Naphade et al.\n    - **Summary**: The paper reviews the 2022 AI City Challenge, focusing on intelligent traffic systems and retail automation, and highlights the performance of participating teams.\n    - **Published**: April 21, 2022\n    - **[PDF](https://arxiv.org/pdf/2204.10380v4)**\n\nThese papers cover a range of topics within AI, from ethical considerations to practical applications in various fields.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "top AI",
+            "max_results": 10
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "top AI",
+            "api_query": "all:top AND all:AI",
+            "total_results": 1562,
+            "items": [
+              {
+                "arxiv_id": "2604.00643v1",
+                "title": "In the Middle, Not on Top: AI-Mediated Communication for Patient-Provider Care Relationships",
+                "summary": "Relationship-centered care relies on trust and meaningful connection. As AI enters clinical settings, we must ask not just what it can do, but how it should be positioned to support these values. We examine a \"middle, not top\" approach where AI mediates communication without usurping human judgment. Through studies of CLEAR, an asynchronous messaging system, we show how this configuration addresses real-world constraints like time pressure and uneven health literacy. We find that mediator affordances (e.g., availability, neutrality) redistribute interpretive work and reduce relational friction. Ultimately, we frame AI mediation as relational infrastructure, highlighting critical design tensions around framing power and privacy.",
+                "authors": [
+                  "Ut Gong",
+                  "Yibo Meng",
+                  "Qihan Zhang",
+                  "Xin Chen",
+                  "Yan Guan"
+                ],
+                "published": "2026-04-01T08:53:40Z",
+                "updated": "2026-04-01T08:53:40Z",
+                "url": "http://arxiv.org/abs/2604.00643v1",
+                "pdf_url": "https://arxiv.org/pdf/2604.00643v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.HC",
+                "categories": [
+                  "cs.HC"
+                ]
+              },
+              {
+                "arxiv_id": "2102.01265v1",
+                "title": "The Limits of Global Inclusion in AI Development",
+                "summary": "Those best-positioned to profit from the proliferation of artificial intelligence (AI) systems are those with the most economic power. Extant global inequality has motivated Western institutions to involve more diverse groups in the development and application of AI systems, including hiring foreign labour and establishing extra-national data centers and laboratories. However, given both the propensity of wealth to abet its own accumulation and the lack of contextual knowledge in top-down AI solutions, we argue that more focus should be placed on the redistribution of power, rather than just on including underrepresented groups. Unless more is done to ensure that opportunities to lead AI development are distributed justly, the future may hold only AI systems which are unsuited to their conditions of application, and exacerbate inequality.",
+                "authors": [
+                  "Alan Chan",
+                  "Chinasa T. Okolo",
+                  "Zachary Terner",
+                  "Angelina Wang"
+                ],
+                "published": "2021-02-02T02:53:40Z",
+                "updated": "2021-02-02T02:53:40Z",
+                "url": "http://arxiv.org/abs/2102.01265v1",
+                "pdf_url": "https://arxiv.org/pdf/2102.01265v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CY",
+                "categories": [
+                  "cs.CY"
+                ]
+              },
+              {
+                "arxiv_id": "2605.02050v1",
+                "title": "Principles and Guidelines for Randomized Controlled Trials in AI Evaluation",
+                "summary": "This work establishes a foundational framework for standardizing AI evaluation RCTs (sometimes called human uplift studies). Drawing on established experimental practices from disciplines with established RCT traditions, including software engineering, economics, clinical and health sciences, and psychology, we adopt the (Shadish et al., 2002) four-validity framework and extend it with a fifth principle on transparency, repeatability, and verification adapted from the Transparency and Openness Promotion (TOP) Guidelines (Center for Open Science, 2025). We operationalize all five principles into 33 guidelines adapted for AI evaluation RCT contexts, expressed as requirements with rationales, implementation instructions, and evidence bases. We position the principles and guidelines as serving three key roles for AI evaluation RCTs: a design tool for planning studies, an evaluation rubric for assessing existing work, and a blueprint for standard setting as the field converges on norms. Our framework extends prior work by centering evaluation on human performance rather than model output alone, formalizing causal inference through RCT methodology for AI contexts, integrating heterogeneity analysis and practical significance assessment, implementing a graded transparency and repeatability framework, and addressing AI-specific challenges including model versioning, human-AI interaction dynamics, contamination and spillover effects, and equitable impact assessment.",
+                "authors": [
+                  "Christopher Kelly",
+                  "Angelica Chowdhury",
+                  "Alexandra Campili",
+                  "Bimpe Ayoola",
+                  "Devin Barbour",
+                  "Thomas Chen Dawson",
+                  "Ze Shen Chin",
+                  "Rokas Gipiškis"
+                ],
+                "published": "2026-05-03T20:37:48Z",
+                "updated": "2026-05-03T20:37:48Z",
+                "url": "http://arxiv.org/abs/2605.02050v1",
+                "pdf_url": "https://arxiv.org/pdf/2605.02050v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CY",
+                "categories": [
+                  "cs.CY",
+                  "cs.AI",
+                  "cs.HC",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2007.09227v1",
+                "title": "KubeEdge.AI: AI Platform for Edge Devices",
+                "summary": "The demand for smartness in embedded systems has been mounting up drastically in the past few years. Embedded system today must address the fundamental challenges introduced by cloud computing and artificial intelligence. KubeEdge [1] is an edge computing framework build on top of Kubernetes [2]. It provides compute resource management, deployment, runtime and operation capabilities on geo-located edge computing resources, from the cloud, which is a natural fit for embedded systems. Here we propose KubeEdge.AI, an edge AI framework on top of KubeEdge. It provides a set of key modules and interfaces: a data handling and processing engine, a concise AI runtime, a decision engine, and a distributed data query interface. KubeEdge.AI will help reduce the burdens for developing specific edge/embedded AI systems and promote edge-cloud coordination and synergy.",
+                "authors": [
+                  "Sean Wang",
+                  "Yuxiao Hu",
+                  "Jason Wu"
+                ],
+                "published": "2020-07-07T23:36:23Z",
+                "updated": "2020-07-07T23:36:23Z",
+                "url": "http://arxiv.org/abs/2007.09227v1",
+                "pdf_url": "https://arxiv.org/pdf/2007.09227v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.DC",
+                "categories": [
+                  "cs.DC",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2104.07237v2",
+                "title": "Skilled and Mobile: Survey Evidence of AI Researchers' Immigration Preferences",
+                "summary": "Countries, companies, and universities are increasingly competing over top-tier artificial intelligence (AI) researchers. Where are these researchers likely to immigrate and what affects their immigration decisions? We conducted a survey $(n = 524)$ of the immigration preferences and motivations of researchers that had papers accepted at one of two prestigious AI conferences: the Conference on Neural Information Processing Systems (NeurIPS) and the International Conference on Machine Learning (ICML). We find that the U.S. is the most popular destination for AI researchers, followed by the U.K., Canada, Switzerland, and France. A country's professional opportunities stood out as the most common factor that influences immigration decisions of AI researchers, followed by lifestyle and culture, the political climate, and personal relations. The destination country's immigration policies were important to just under half of the researchers surveyed, while around a quarter noted current immigration difficulties to be a deciding factor. Visa and immigration difficulties were perceived to be a particular impediment to conducting AI research in the U.S., the U.K., and Canada. Implications of the findings for the future of AI talent policies and governance are discussed.",
+                "authors": [
+                  "Remco Zwetsloot",
+                  "Baobao Zhang",
+                  "Noemi Dreksler",
+                  "Lauren Kahn",
+                  "Markus Anderljung",
+                  "Allan Dafoe",
+                  "Michael C. Horowitz"
+                ],
+                "published": "2021-04-15T05:07:11Z",
+                "updated": "2021-05-05T15:36:44Z",
+                "url": "http://arxiv.org/abs/2104.07237v2",
+                "pdf_url": "https://arxiv.org/pdf/2104.07237v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CY",
+                "categories": [
+                  "cs.CY"
+                ]
+              },
+              {
+                "arxiv_id": "2006.10437v1",
+                "title": "\"EHLO WORLD\" -- Checking If Your Conversational AI Knows Right from Wrong",
+                "summary": "In this paper we discuss approaches to evaluating and validating the ethical claims of a Conversational AI system. We outline considerations around both a top-down regulatory approach and bottom-up processes. We describe the ethical basis for each approach and propose a hybrid which we demonstrate by taking the case of a customer service chatbot as an example. We speculate on the kinds of top-down and bottom-up processes that would need to exist for a hybrid framework to successfully function as both an enabler as well as a shepherd among multiple use-cases and multiple competing AI solutions.",
+                "authors": [
+                  "Elayne Ruane",
+                  "Vivek Nallur"
+                ],
+                "published": "2020-06-18T11:33:02Z",
+                "updated": "2020-06-18T11:33:02Z",
+                "url": "http://arxiv.org/abs/2006.10437v1",
+                "pdf_url": "https://arxiv.org/pdf/2006.10437v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CY",
+                "categories": [
+                  "cs.CY",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2301.04819v3",
+                "title": "Data-centric AI: Perspectives and Challenges",
+                "summary": "The role of data in building AI systems has recently been significantly magnified by the emerging concept of data-centric AI (DCAI), which advocates a fundamental shift from model advancements to ensuring data quality and reliability. Although our community has continuously invested efforts into enhancing data in different aspects, they are often isolated initiatives on specific tasks. To facilitate the collective initiative in our community and push forward DCAI, we draw a big picture and bring together three general missions: training data development, inference data development, and data maintenance. We provide a top-level discussion on representative DCAI tasks and share perspectives. Finally, we list open challenges. More resources are summarized at https://github.com/daochenzha/data-centric-AI",
+                "authors": [
+                  "Daochen Zha",
+                  "Zaid Pervaiz Bhat",
+                  "Kwei-Herng Lai",
+                  "Fan Yang",
+                  "Xia Hu"
+                ],
+                "published": "2023-01-12T05:28:59Z",
+                "updated": "2023-04-02T05:18:56Z",
+                "url": "http://arxiv.org/abs/2301.04819v3",
+                "pdf_url": "https://arxiv.org/pdf/2301.04819v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2512.02654v1",
+                "title": "Cybersecurity AI: The World's Top AI Agent for Security Capture-the-Flag (CTF)",
+                "summary": "Are Capture-the-Flag competitions obsolete? In 2025, Cybersecurity AI (CAI) systematically conquered some of the world's most prestigious hacking competitions, achieving Rank #1 at multiple events and consistently outperforming thousands of human teams. Across five major circuits-HTB's AI vs Humans, Cyber Apocalypse (8,129 teams), Dragos OT CTF, UWSP Pointer Overflow, and the Neurogrid CTF showdown-CAI demonstrated that Jeopardy-style CTFs have become a solved game for well-engineered AI agents. At Neurogrid, CAI captured 41/45 flags to claim the $50,000 top prize; at Dragos OT, it sprinted 37% faster to 10K points than elite human teams; even when deliberately paused mid-competition, it maintained top-tier rankings. Critically, CAI achieved this dominance through our specialized alias1 model architecture, which delivers enterprise-scale AI security operations at unprecedented cost efficiency and with augmented autonomy-reducing 1B token inference costs from $5,940 to just $119, making continuous security agent operation financially viable for the first time. These results force an uncomfortable reckoning: if autonomous agents now dominate competitions designed to identify top security talent at negligible cost, what are CTFs actually measuring? This paper presents comprehensive evidence of AI capability across the 2025 CTF circuit and argues that the security community must urgently transition from Jeopardy-style contests to Attack & Defense formats that genuinely test adaptive reasoning and resilience-capabilities that remain uniquely human, for now.",
+                "authors": [
+                  "Víctor Mayoral-Vilches",
+                  "Luis Javier Navarrete-Lozano",
+                  "Francesco Balassone",
+                  "María Sanz-Gómez",
+                  "Cristóbal R. J. Veas Chavez",
+                  "Maite del Mundo de Torres",
+                  "Vanesa Turiel"
+                ],
+                "published": "2025-12-02T11:15:44Z",
+                "updated": "2025-12-02T11:15:44Z",
+                "url": "http://arxiv.org/abs/2512.02654v1",
+                "pdf_url": "https://arxiv.org/pdf/2512.02654v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR"
+                ]
+              },
+              {
+                "arxiv_id": "2508.13564v1",
+                "title": "The 9th AI City Challenge",
+                "summary": "The ninth AI City Challenge continues to advance real-world applications of computer vision and AI in transportation, industrial automation, and public safety. The 2025 edition featured four tracks and saw a 17% increase in participation, with 245 teams from 15 countries registered on the evaluation server. Public release of challenge datasets led to over 30,000 downloads to date. Track 1 focused on multi-class 3D multi-camera tracking, involving people, humanoids, autonomous mobile robots, and forklifts, using detailed calibration and 3D bounding box annotations. Track 2 tackled video question answering in traffic safety, with multi-camera incident understanding enriched by 3D gaze labels. Track 3 addressed fine-grained spatial reasoning in dynamic warehouse environments, requiring AI systems to interpret RGB-D inputs and answer spatial questions that combine perception, geometry, and language. Both Track 1 and Track 3 datasets were generated in NVIDIA Omniverse. Track 4 emphasized efficient road object detection from fisheye cameras, supporting lightweight, real-time deployment on edge devices. The evaluation framework enforced submission limits and used a partially held-out test set to ensure fair benchmarking. Final rankings were revealed after the competition concluded, fostering reproducibility and mitigating overfitting. Several teams achieved top-tier results, setting new benchmarks in multiple tasks.",
+                "authors": [
+                  "Zheng Tang",
+                  "Shuo Wang",
+                  "David C. Anastasiu",
+                  "Ming-Ching Chang",
+                  "Anuj Sharma",
+                  "Quan Kong",
+                  "Norimasa Kobori",
+                  "Munkhjargal Gochoo",
+                  "Ganzorig Batnasan",
+                  "Munkh-Erdene Otgonbold",
+                  "Fady Alnajjar",
+                  "Jun-Wei Hsieh",
+                  "Tomasz Kornuta",
+                  "Xiaolong Li",
+                  "Yilin Zhao",
+                  "Han Zhang",
+                  "Subhashree Radhakrishnan",
+                  "Arihant Jain",
+                  "Ratnesh Kumar",
+                  "Vidya N. Murali",
+                  "Yuxing Wang",
+                  "Sameer Satish Pusegaonkar",
+                  "Yizhou Wang",
+                  "Sujit Biswas",
+                  "Xunlei Wu",
+                  "Zhedong Zheng",
+                  "Pranamesh Chakraborty",
+                  "Rama Chellappa"
+                ],
+                "published": "2025-08-19T06:55:06Z",
+                "updated": "2025-08-19T06:55:06Z",
+                "url": "http://arxiv.org/abs/2508.13564v1",
+                "pdf_url": "https://arxiv.org/pdf/2508.13564v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.LG",
+                  "cs.RO"
+                ]
+              },
+              {
+                "arxiv_id": "2204.10380v4",
+                "title": "The 6th AI City Challenge",
+                "summary": "The 6th edition of the AI City Challenge specifically focuses on problems in two domains where there is tremendous unlocked potential at the intersection of computer vision and artificial intelligence: Intelligent Traffic Systems (ITS), and brick and mortar retail businesses. The four challenge tracks of the 2022 AI City Challenge received participation requests from 254 teams across 27 countries. Track 1 addressed city-scale multi-target multi-camera (MTMC) vehicle tracking. Track 2 addressed natural-language-based vehicle track retrieval. Track 3 was a brand new track for naturalistic driving analysis, where the data were captured by several cameras mounted inside the vehicle focusing on driver safety, and the task was to classify driver actions. Track 4 was another new track aiming to achieve retail store automated checkout using only a single view camera. We released two leader boards for submissions based on different methods, including a public leader board for the contest, where no use of external data is allowed, and a general leader board for all submitted results. The top performance of participating teams established strong baselines and even outperformed the state-of-the-art in the proposed challenge tracks.",
+                "authors": [
+                  "Milind Naphade",
+                  "Shuo Wang",
+                  "David C. Anastasiu",
+                  "Zheng Tang",
+                  "Ming-Ching Chang",
+                  "Yue Yao",
+                  "Liang Zheng",
+                  "Mohammed Shaiqur Rahman",
+                  "Archana Venkatachalapathy",
+                  "Anuj Sharma",
+                  "Qi Feng",
+                  "Vitaly Ablavsky",
+                  "Stan Sclaroff",
+                  "Pranamesh Chakraborty",
+                  "Alice Li",
+                  "Shangru Li",
+                  "Rama Chellappa"
+                ],
+                "published": "2022-04-21T19:24:17Z",
+                "updated": "2022-06-09T22:52:22Z",
+                "url": "http://arxiv.org/abs/2204.10380v4",
+                "pdf_url": "https://arxiv.org/pdf/2204.10380v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-06-02T14:46:23"
+    }
+  ]
+}
