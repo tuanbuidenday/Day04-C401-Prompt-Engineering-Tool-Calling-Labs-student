@@ -8,8 +8,12 @@ import yaml
 # Folder names are intentionally vague to match the tool names students see.
 # The imported function names are the underlying implementations (unchanged).
 from .clarify.tool import ask_user
+from .citation_check.tool import citation_check
+from .date_normalize.tool import date_normalize
+from .extract_keywords.tool import extract_keywords
 from .papers.tool import arxiv_search
 from .paper_text.tool import get_arxiv_paper_text
+from .source_rank.tool import source_rank
 from .timeline.tool import get_user_tweets
 from .fetch.tool import read_url
 from .format.tool import render_digest
@@ -35,6 +39,10 @@ TOOL_FUNCTIONS = {
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "extract_keywords": extract_keywords,
+    "date_normalize": date_normalize,
+    "citation_check": citation_check,
+    "source_rank": source_rank,
 }
 
 
@@ -51,4 +59,3 @@ def to_openai_tools(declarations: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "parameters": item.get("parameters", {"type": "object", "properties": {}}),
         },
     } for item in declarations]
-
