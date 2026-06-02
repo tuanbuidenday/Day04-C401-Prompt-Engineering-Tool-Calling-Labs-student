@@ -158,9 +158,6 @@ def main() -> None:
         with st.chat_message("assistant"):
             if turn.get("assistant_text"):
                 st.write(turn["assistant_text"])
-            if turn.get("tool_events"):
-                with st.expander("Tool events", expanded=False):
-                    st.json(turn["tool_events"])
 
     user_text = st.chat_input("Ask for research, tweets, article summaries, papers, or policy lookup")
     if not user_text:
@@ -201,9 +198,6 @@ def main() -> None:
                 st.write(assistant_text)
                 st.session_state.history.append({"role": "user", "content": user_text})
                 st.session_state.history.append({"role": "assistant", "content": assistant_text})
-                if result.get("tool_events"):
-                    with st.expander("Tool events", expanded=True):
-                        st.json(result["tool_events"])
             except Exception as exc:
                 turn_record.update({
                     "status": "provider_error",
