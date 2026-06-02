@@ -55,15 +55,15 @@ Research Agent hỗ trợ tìm tin web, tìm bài đăng mạng xã hội, đọ
 ## B1. Final Metrics
 
 - Final version: v3
-- Final artifact_version: `v3+pe6b27afa6232+t47d46118524b`
-- Best base run file: `runs/v3_B_base_openrouter_20260602T162856054332.json`
+- Final artifact_version: `v3+pd1c9a2af3d8c+t47d46118524b`
+- Best base run file: `runs/v3_B_base_openrouter_20260602T163657850443.json`
 - Base case accuracy: 100% (20/20)
 - Base tool routing accuracy: 100%
 - Base argument accuracy: 100%
 - Base multiturn accuracy: 100%
-- Extension run file: `runs/v3_B_extension_openrouter_20260602T162945479792.json`
+- Extension run file: `runs/v3_B_extension_openrouter_20260602T163734679392.json`
 - Extension accuracy: 100% (10/10)
-- Group eval run file: `runs/v3_B_group_openrouter_20260602T162727914615.json`
+- Group eval run file: `runs/v3_B_group_openrouter_20260602T163535481837.json`
 - Group accuracy: 100% (10/10)
 - Group tool routing accuracy: 100%
 - Group argument accuracy: 100%
@@ -78,7 +78,7 @@ Research Agent hỗ trợ tìm tin web, tìm bài đăng mạng xã hội, đọ
 | v0 | baseline | Initial default prompt baseline | 0.00 | 0.70 | `runs/v0_B_base_openrouter_20260602T143011294601.json` |
 | v1 | `artifacts/system_prompt.md` | Add routing rules, handle mappings, safety boundaries, and out-of-scope behavior. | 0.70 | 0.95 | `runs/v1_B_base_openrouter_20260602T143823820867.json` |
 | v2 | `artifacts/system_prompt.md` | Require explicit `response_type` for `clarify` calls. | 0.95 | 1.00 | `runs/v2_B_base_openrouter_20260602T144037743463.json` |
-| v3 | `artifacts/system_prompt.md` + `artifacts/tools.yaml` | Integrate expert feedback, multilingual consistency, parallel routing fixes, and Notion tool routing. | 1.00 | 1.00 | `runs/v3_B_base_openrouter_20260602T162856054332.json` |
+| v3 | `artifacts/system_prompt.md` + `artifacts/tools.yaml` | Integrate expert feedback, multilingual consistency, parallel routing fixes, and Notion tool routing. | 1.00 | 1.00 | `runs/v3_B_base_openrouter_20260602T163657850443.json` |
 
 ## B3. Failure Analysis
 
@@ -105,7 +105,7 @@ Evidence:
 | 10 total group cases | 10/10 |
 | 5 single-turn cases | 5/5 |
 | 5 multi-turn cases | 5/5 |
-| `runs/v3_B_group_*.json` | `runs/v3_B_group_openrouter_20260602T162727914615.json` |
+| `runs/v3_B_group_*.json` | `runs/v3_B_group_openrouter_20260602T163535481837.json` |
 | Group case accuracy | 100% (10/10) |
 | Group tool routing accuracy | 100% |
 | Group argument accuracy | 100% |
@@ -115,16 +115,16 @@ Group case coverage:
 
 | Case ID | Type | What it tests |
 | --- | --- | --- |
-| G01_notion_read_page | single-turn | Read a specific Notion page by page ID. |
-| G02_notion_search_database | single-turn | Search a connected Notion workspace for a database. |
-| G03_keyword_extraction_vi | single-turn | Team helper `extract_keywords` with `max_keywords=4`. |
-| G04_date_normalize_month | single-turn | Team helper `date_normalize` for "tháng này". |
-| G05_parallel_news_policy | single-turn | Parallel `lookup` news + `policy(source_citation)`. |
-| GM01_multiturn_notion_page | multi-turn | Carry Notion page ID from previous turns. |
-| GM02_multiturn_send_confirmation | multi-turn | Confirm Telegram publishing with `clarify(response_type="yes_no")`. |
-| GM03_multiturn_switch_to_arxiv | multi-turn | Switch from web lookup to arXiv `papers`. |
-| GM04_multiturn_missing_url_then_policy | multi-turn | Carry supplied URL and call `fetch` + `policy(ai_research)`. |
-| GM05_multiturn_timeframe_correction | multi-turn | Correct query and timeframe across turns. |
+| G01_single_turn_policy_workflow | single-turn | Route internal research workflow question to `policy(ai_research)`. |
+| G02_single_turn_lookup_timeframe | single-turn | Map monthly autonomous vehicle news to `lookup(timeframe="month")`. |
+| G03_single_turn_timeline_lookup | single-turn | Map Andrej Karpathy to `timeline(screenname="karpathy")`. |
+| G04_single_turn_fetch_missing_url | single-turn | Ask `clarify(response_type="text")` when article URL is missing. |
+| G05_single_turn_out_of_scope | single-turn | Refuse an out-of-scope recipe request without tools. |
+| GM01_multiturn_timeline_carry | multi-turn | Carry limit while switching Sam Altman to Elon Musk. |
+| GM02_multiturn_lookup_timeframe_carry | multi-turn | Carry news/day context while switching query to AMD. |
+| GM03_multiturn_clarify_missing_url | multi-turn | Use URL supplied in a later turn with `fetch`. |
+| GM04_multiturn_switch_policy | multi-turn | Switch from web search to internal `policy(data_privacy)`. |
+| GM05_multiturn_clarify_missing_handle | multi-turn | Carry tweet limit and fill handle `sama`. |
 
 ## B5. Live Chat Evidence
 
@@ -140,8 +140,8 @@ Group case coverage:
 | Bonus | Evidence File | What Worked | Risk / Guardrail |
 | --- | --- | --- | --- |
 | send confirmation | `transcripts/v3_openrouter_20260602T144702226831.transcript.json` | Agent called `clarify(response_type="yes_no")` before sending; direct `send` tool live retest returned `status="sent"` after confirmed Telegram config. | Prevents unintended Telegram publishing. |
-| arXiv/company policy | `runs/v3_B_extension_openrouter_20260602T162945479792.json` | `policy`, `papers`, and `paper_text` extension eval passed 10/10. | Prompt maps policy topics to correct `policy_area` and handles parallel calls. |
-| Notion tool | `runs/v3_B_group_openrouter_20260602T162727914615.json` | `notion` search/page cases passed; live retest found workspace items and read page `Color`. | Requires `NOTION_API_KEY` and shared content access for the integration. |
+| arXiv/company policy | `runs/v3_B_extension_openrouter_20260602T163734679392.json` | `policy`, `papers`, and `paper_text` extension eval passed 10/10. | Prompt maps policy topics to correct `policy_area` and handles parallel calls. |
+| Notion tool | live retest | `notion` search found workspace items and read page `Color` after content access was enabled. | Requires `NOTION_API_KEY` and shared content access for the integration. |
 | UI | `app.py` and Cloudflare URL above | Streamlit UI runs locally and is exposed through Cloudflare Tunnel. | Public tunnel is temporary and must stay running during demo. |
 | >3 new tools | `tools/extract_keywords`, `tools/date_normalize`, `tools/citation_check`, `tools/source_rank`, `tools/notion` | Five team tools are implemented, documented, registered, and declared. | Descriptions mark helper tools as local helpers; `notion` requires explicit Notion intent and `NOTION_API_KEY`. |
 
