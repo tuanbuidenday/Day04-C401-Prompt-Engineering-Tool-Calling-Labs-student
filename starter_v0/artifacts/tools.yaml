@@ -116,3 +116,61 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang"}
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
+
+  # ---------------- Team local tools ----------------
+  - name: extract_keywords
+    description: "Tool local phụ trợ để trích keyword từ text. Chỉ dùng khi user yêu cầu keyword/chủ đề rõ ràng; không dùng như bước bắt buộc trước lookup hoặc social_search."
+    parameters:
+      type: object
+      properties:
+        text: {type: string, default: "", description: "Query hoặc đoạn text cần trích keyword"}
+        max_keywords: {type: integer, default: 5, description: "Số keyword tối đa"}
+      required: [text]
+
+  - name: date_normalize
+    description: "Tool local phụ trợ để chuẩn hóa cụm thời gian thành day/week/month/year và khoảng ngày. Chỉ dùng khi user hỏi chuẩn hóa thời gian; với request tin tức thì truyền timeframe trực tiếp cho lookup."
+    parameters:
+      type: object
+      properties:
+        text: {type: string, default: "", description: "Cụm thời gian hoặc câu có chứa thời gian"}
+        reference_date: {type: string, default: "", description: "Ngày mốc dạng YYYY-MM-DD, bỏ trống để dùng ngày hiện tại"}
+      required: [text]
+
+  - name: citation_check
+    description: "Tool local phụ trợ để kiểm tra item research đã có đủ title, url/source và summary. Chỉ dùng sau khi đã có items hoặc khi user yêu cầu kiểm tra citation."
+    parameters:
+      type: object
+      properties:
+        items:
+          type: array
+          default: []
+          description: "Danh sách item research cần kiểm tra citation"
+          items:
+            type: object
+            properties:
+              title: {type: string}
+              url: {type: string}
+              source: {type: string}
+              summary: {type: string}
+      required: [items]
+
+  - name: source_rank
+    description: "Tool local phụ trợ để xếp hạng các item research đã có theo chất lượng nguồn. Chỉ dùng sau khi đã có items hoặc khi user yêu cầu rank nguồn; không fetch dữ liệu mới."
+    parameters:
+      type: object
+      properties:
+        items:
+          type: array
+          default: []
+          description: "Danh sách item research cần xếp hạng"
+          items:
+            type: object
+            properties:
+              title: {type: string}
+              url: {type: string}
+              source: {type: string}
+              summary: {type: string}
+              published: {type: string}
+              date: {type: string}
+        max_items: {type: integer, default: 5, description: "Số item trả về tối đa"}
+      required: [items]
