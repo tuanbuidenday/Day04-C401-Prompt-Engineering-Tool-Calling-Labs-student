@@ -1,0 +1,46 @@
+{
+  "transcript_id": "ui_v3_openrouter_20260602T152114666902",
+  "version": "v3",
+  "artifact_version": "v3+p99025c7f70e0+t364123a68efb",
+  "prompt_hash": "99025c7f70e0396bbb2fc696628992a57dcad457dcd2cb8f809f36ae5d22704d",
+  "tools_hash": "364123a68efbfe65f1f346a7c348a5c0690de21c0c164cada37a30e16724042c",
+  "provider": "openrouter",
+  "model": null,
+  "system_prompt": "/Users/tuan/github-classroom/Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student/starter_v0/artifacts/system_prompt.md",
+  "tools": "/Users/tuan/github-classroom/Day04-C401-Prompt-Engineering-Tool-Calling-Labs-student/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-06-02T15:21:14",
+  "updated_at": "2026-06-02T15:22:41",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-06-02T15:21:57",
+      "user": "ban co the lam gi ",
+      "status": "provider_error",
+      "assistant_text": "Provider or tool error. Check configuration and transcript details.",
+      "rounds": [],
+      "tool_events": [],
+      "error": "RuntimeError: Missing API key env var: OPENAI_API_KEY",
+      "ended_at": "2026-06-02T15:21:58"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-06-02T15:22:38",
+      "user": "Ban co the lam gi",
+      "status": "answered",
+      "assistant_text": "Tôi có thể giúp bạn tìm kiếm thông tin, bài viết, hoặc các bài đăng trên mạng xã hội về một chủ đề cụ thể. Nếu bạn cần tìm kiếm thông tin, hãy cho tôi biết chủ đề hoặc câu hỏi của bạn!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi có thể giúp bạn tìm kiếm thông tin, bài viết, hoặc các bài đăng trên mạng xã hội về một chủ đề cụ thể. Nếu bạn cần tìm kiếm thông tin, hãy cho tôi biết chủ đề hoặc câu hỏi của bạn!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-06-02T15:22:41"
+    }
+  ],
+  "ui": "streamlit"
+}
