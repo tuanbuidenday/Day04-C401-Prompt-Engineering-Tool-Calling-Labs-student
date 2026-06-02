@@ -9,8 +9,8 @@
 ## Final Metrics
 
 - Final version: v3
-- Final artifact_version: v3+p99025c7f70e0+t6cdb53d5d7b8
-- Best base run file: runs/v3_B_base_openrouter_20260602T144618989360.json
+- Final artifact_version: v3+pb847723bab22+t6cdb53d5d7b8
+- Best base run file: runs/v3_B_base_openrouter_20260602T153144748278.json
 - Base case accuracy: 100% (20/20)
 - Base tool routing accuracy: 100% (20/20)
 - Base argument accuracy: 100% (20/20)
@@ -25,7 +25,8 @@
 | v0 | baseline | Initial default prompt baseline | 0.00 | 0.70 | runs/v0_B_base_openrouter_20260602T143011294601.json |
 | v1 | starter_v0/artifacts/system_prompt.md | Add routing rules, handle mappings, safety boundaries for telegram sending, and out-of-scope refuse behaviors | 0.70 | 0.95 | runs/v1_B_base_openrouter_20260602T143823820867.json |
 | v2 | starter_v0/artifacts/system_prompt.md | Mandate explicit `response_type` in clarify tool calls to resolve omitted default argument error in R11 | 0.95 | 1.00 | runs/v2_B_base_openrouter_20260602T144037743463.json |
-| v3 | starter_v0/artifacts/system_prompt.md | Add formatting and professional tone guidelines for cleaner markdown outputs and academic reports | 1.00 | 1.00 | runs/v3_B_base_openrouter_20260602T144618989360.json |
+| v3 | starter_v0/artifacts/system_prompt.md | Integrate expert feedback (handle discovery, multilingual consistency) and fix parallel routing regression (E06) | 1.00 | 1.00 | runs/v3_B_base_openrouter_20260602T153144748278.json |
+
 
 
 ## Failure Analysis
@@ -67,7 +68,7 @@ Use `transcripts/v3_openrouter_20260602T144702226831.transcript.json`.
 | Bonus | Evidence File | What Worked | Risk / Guardrail |
 |---|---|---|---|
 | send (Telegram) | [Điền nếu nhóm làm] | [Điền nếu nhóm làm] | [Điền nếu nhóm làm] |
-| arXiv/company policy | runs/v2_B_extension_openrouter_20260602T144201596454.json | arXiv search (`papers`), pdf extraction (`paper_text`), and company policy search (`policy`) worked perfectly at 100% (10/10) accuracy. | Incorrect `policy_area` extraction. Mitigated by explicit topic-to-enum mapping rules in prompt. |
+| arXiv/company policy | runs/v3_B_extension_openrouter_20260602T153245035985.json | arXiv search (`papers`), pdf extraction (`paper_text`), and company policy search (`policy`) worked perfectly at 100% (10/10) accuracy. | Incorrect `policy_area` extraction or missing parallel calls. Mitigated by explicit topic-to-enum mapping and parallel tool rules in prompt. |
 | UI | [Điền nếu nhóm làm] | [Điền nếu nhóm làm] | [Điền nếu nhóm làm] |
 
 ## Reflection
